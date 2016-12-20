@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% load static %}
+<head>
+
+	<meta charset="utf-8">
+    	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    	<meta name="viewport" content="width=device-width, shrink-to-fit=no, initial-scale=1">
+    	<meta name="description" content="">
+    	<meta name="author" content="">
+
+    	<title>Form Navigation</title>
+  	
+    	<!-- Bootstrap Core CSS -->
+    	<link href= {% static "mani_tables/all_forms/css/bootstrap.min.css" %} rel="stylesheet">
+		<link href= {% static "mani_tables/all_forms/css/bootstrap.css" %} rel="stylesheet">
+	    <link href={% static "mani_tables/all_forms/css/sb-admin.css" %} rel="stylesheet">
+    	
+		<!-- Custom CSS for the sidebar -->
+    	<link href={% static "mani_tables/all_forms/css/simple-sidebar.css" %} rel="stylesheet">
+		
+		<!-- Custom Css for scrolling-->	
+		<link href={% static "mani_tables/all_forms/css/scrolling-nav.css" %} rel="stylesheet">    
+
+</head>
+
+<body data-spy="scroll" data-target=".navbar-fixed-top">
+		<div id="wrapper">
+      	<!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+			 <div class="navbar-header">
+                <a class="navbar-brand" href="/mani_tables/home">HOME</a>
+             </div>
+            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav">
+                    <li>
+                        <a href="#"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="#patient_form" class="page-scroll"><i class="fa fa-fw fa-bar-chart-o"></i> Patient</a>
+                    </li>
+                    <li>
+                        <a href="#department_form" class="page-scroll"><i class="fa fa-fw fa-table"></i> Department</a>
+                    </li>
+                    <li>
+                        <a href="#doctor_form" class="page-scroll"><i class="fa fa-fw fa-edit"></i> Doctor</a>
+                    </li>
+                    
+                    <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Dropdown <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="demo" class="collapse">
+                                <a href="#">Dropown Item</a>
+                            <li>
+                            </li>
+                            <li>
+                                <a href="#">Dropdown Item</a>
+                            </li>
+                        </ul>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </nav>
+
+		
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+			<!--====================================================================   PATIENT - FORM    ===============================================================================-->
+				
+				<br><br><br><br><br>
+				
+
+<div id="page_top"></div>
+<section  id="patient_form">
+	<div class="container">
+    	<div class="row">
+        	<div class="col-lg-12">
+    			<form class="well form-horizontal" action="/mani_tables/insert_patient" method="post" >
+
+					{% csrf_token %}
+					<!-- Form Name -->
+					<legend>PATIENT FORM :  </legend>
+	
+					<!-- Text input-->
+					<fieldset>
+					<div class="form-group">
+  						<label class="col-md-4 control-label"> Patient Id :</label>  
+  						<div class="col-md-4 inputGroupContainer">
+ 							<div class="input-group">
+  								<span class="input-group-addon"><i class="glyphicon glyphicon-info-sign"></i></span>
+  								{{ patient.ID }}
+    						</div>
+  						</div>
+					</div>
+
+					
+					<!-- Text input-->
+
+					<div class="form-group">
+  						<label class="col-md-4 control-label" >Patient Name :</label> 
+   	 					<div class="col-md-4 inputGroupContainer">
+    						<div class="input-group">
+  								<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+  								{{ patient.name }}
+    						</div>
+  						</div>
+					</div>
+
+					<!-- Text input-->
+			        	<div class="form-group">
+  				   		<label class="col-md-4 control-label">Age :</label>  
+    						<div class="col-md-4 inputGroupContainer">
+   			 				<div class="input-group">
+        							<span class="input-group-addon"><i class="glyphicon glyphicon-text-background"></i></span>
+  								{{ patient.age }}
+    							</div>
+  						</div>
+					</div>
+
+
+					<!-- Text input-->
+       
+					<div class="form-group">
+  						<label class="col-md-4 control-label">Sex :</label>  
+    					<div class="col-md-4 inputGroupContainer">
+    						<div class="input-group">
+        						<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+  								{{ patient.sex }}
+    						</div>
+  						</div>
+					</div>
+
+					<!-- Text input-->
+      
+					<div class="form-group">
+  						<label class="col-md-4 control-label">BP : </label>  
+    					<div class="col-md-4 inputGroupContainer">
+    						<div class="input-group">
+        						<span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+  								{{ patient.BP }}
+    						</div>
+  						</div>
+					</div>
+
+					<!-- Text input-->
+ 
+					<div class="form-group">
+  						<label class="col-md-4 control-label">Height : </label>  
+    					<div class="col-md-4 inputGroupContainer">
+    						<div class="input-group">
+       							<span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+  								{{ patient.height }}
+    						</div>
+  						</div>
+					</div>
+				
+					<!-- Weight -->
+					<div class="form-group">
+  						<label class="col-md-4 control-label">Weight : </label>  
+    					<div class="col-md-4 inputGroupContainer">
+    						<div class="input-group">
+       							<span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+  								{{ patient.weight }}
+    						</div>
+  						</div>
+					</div>
+
+				
+					<!-- Text input-->
+
+					<div class="form-group">
+  						<label class="col-md-4 control-label">Address :</label>  
+    					<div class="col-md-4 inputGroupContainer">
+    						<div class="input-group">
+        						<span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+  								{{ patient.address }}
+    						</div>
+						</div>
+					</div>
+					
+						
+					<!-- Text input-->
+
+					<div class="form-group">
+  						<label class="col-md-4 control-label">Contact :</label>  
+    					<div class="col-md-4 inputGroupContainer">
+    						<div class="input-group">
+        						<span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+  								{{ patient.contact }}
+    						</div>
+						</div>
+					</div>
+						
+					<!-- Text input-->
+
+					<div class="form-group">
+  						<label class="col-md-4 control-label">Condition :</label>  
+    					<div class="col-md-4 inputGroupContainer">
+    						<div class="input-group">
+        						<span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+  								{{ patient.condition }}
+    						</div>
+						</div>
+					</div>
+
+					<!-- Text input-->
+
+					<div class="form-group">
+  						<label class="col-md-4 control-label">Admitted :</label>  
+    					<div class="col-md-4 inputGroupContainer">
+    						<div class="input-group">
+        						<span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+  								{{ patient.admitted }}
+    						</div>
+						</div>
+					</div>
+					
+					<!-- Text input-->
+
+					<div class="form-group">
+  						<label class="col-md-4 control-label">Fee :</label>  
+    					<div class="col-md-4 inputGroupContainer">
+    						<div class="input-group">
+        						<span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+  								{{ patient.fee }}
+    						</div>
+						</div>
+					</div>
+
+
+
+
+					<br><br>
+					<!-- Button -->
+					<div class="form-group">
+  						<label class="col-md-4 control-label"></label>
+  						<div class="col-md-4">
+							<button type="submit" class="btn btn-warning" >Load Into Patient<span class="glyphicon glyphicon-send"></span></button>
+  						</div>
+					</div>
+
+					</fieldset>
+			    </form>
+			    </div>
+    			</div>
+			</div>
+		</div>
+	</div>
+</section>
+	
+			
+
+            <!--====================================================================   DEPARTMENT - FORM    ===============================================================================-->
+				
+
+<section  id="department_form">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+
+    			<form class="well form-horizontal" action="/mani_tables/insert_department" method="post">
+					
+					{% csrf_token %}
+					<fieldset>
+
+					<!-- Form Name -->
+					<legend>DEPARTMENT FORM :  </legend>
+
+					<!-- Text input-->
+
+					<div class="form-group">
+  						<label class="col-md-4 control-label"> Department Name :</label>
+  						<div class="col-md-4 inputGroupContainer">
+ 							<div class="input-group">
+  								<span class="input-group-addon"><i class="glyphicon glyphicon-info-sign"></i></span>
+  								{{ department.dept_name }}
+    						</div>
+  						</div>
+					</div>
+
+
+					<!-- Text input-->
+
+					<div class="form-group">
+  						<label class="col-md-4 control-label" >Hod's Name :</label>
+   	 					<div class="col-md-4 inputGroupContainer">
+    						<div class="input-group">
+  								<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+  								{{ department.HOD }}
+    						</div>
+  						</div>
+					</div>
+
+					<!-- Text input-->
+			        <div class="form-group">
+  				   		<label class="col-md-4 control-label">Floor-Number :</label>
+    					<div class="col-md-4 inputGroupContainer">
+   			 				<div class="input-group">
+        						<span class="input-group-addon"><i class="glyphicon glyphicon-text-background"></i></span>
+  								{{ department.floor_no }}
+    						</div>
+  						</div>
+					</div>
+
+
+					<br><br>
+					<!-- Button -->
+					<div class="form-group">
+  						<label class="col-md-4 control-label"></label>
+  						<div class="col-md-4">
+							<button type="submit" class="btn btn-warning" >Load Into Department<span class="glyphicon glyphicon-send"></span></button>
+  						</div>
+					</div>
+
+					</fieldset>
+			    </form>
+			    </div>
+    			</div>
+			</div>
+		</div>
+	</div>
+</section>
+			<!--======================================================---  Doctor - Form  ----=============================================================================================-->
+
+<section  id="doctor_form">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+
+    			<form class="well form-horizontal" action="/mani_tables/insert_doctor" method="post">
+					{% csrf_token %}
+					<fieldset>
+
+					<!-- Form Name -->
+					<legend>DOCTOR FORM :  </legend>
+
+					<!-- Text input-->
+
+					<div class="form-group">
+  						<label class="col-md-4 control-label"> Doctor's ID :</label>
+  						<div class="col-md-4 inputGroupContainer">
+ 							<div class="input-group">
+  								<span class="input-group-addon"><i class="glyphicon glyphicon-info-sign"></i></span>
+  								{{ doctor.ID }}
+    						</div>
+  						</div>
+					</div>
+
+
+					<!-- Text input-->
+
+					<div class="form-group">
+  						<label class="col-md-4 control-label" >Doctor's Name :</label>
+   	 					<div class="col-md-4 inputGroupContainer">
+    						<div class="input-group">
+  								<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+  								{{ doctor.name }}
+    						</div>
+  						</div>
+					</div>
+
+					<!-- Text input-->
+			        <div class="form-group">
+  				   		<label class="col-md-4 control-label">Doctor's Age :</label>
+    					<div class="col-md-4 inputGroupContainer">
+   			 				<div class="input-group">
+        						<span class="input-group-addon"><i class="glyphicon glyphicon-text-background"></i></span>
+  								{{ doctor.age }}
+    						</div>
+  						</div>
+					</div>
+
+					
+					<!-- Text input-->
+			        <div class="form-group">
+  				   		<label class="col-md-4 control-label">Sex :</label>
+    					<div class="col-md-4 inputGroupContainer">
+   			 				<div class="input-group">
+        						<span class="input-group-addon"><i class="glyphicon glyphicon-text-background"></i></span>
+  								{{ doctor.sex }}
+    						</div>
+  						</div>
+					</div>
+
+				
+					<!-- Text input-->
+			        <div class="form-group">
+  				   		<label class="col-md-4 control-label">Doctor's Salary :</label>
+    					<div class="col-md-4 inputGroupContainer">
+   			 				<div class="input-group">
+        						<span class="input-group-addon"><i class="glyphicon glyphicon-text-background"></i></span>
+  								{{ doctor.salary }}
+    						</div>
+  						</div>
+					</div>
+			
+					<!-- Text input-->
+			        <div class="form-group">
+  				   		<label class="col-md-4 control-label">Doctor's Specialization :</label>
+    					<div class="col-md-4 inputGroupContainer">
+   			 				<div class="input-group">
+        						<span class="input-group-addon"><i class="glyphicon glyphicon-text-background"></i></span>
+  								{{ doctor.specialisation }}
+    						</div>
+  						</div>
+					</div>
+
+
+					<!-- Text input-->
+			        <div class="form-group">
+  				   		<label class="col-md-4 control-label">Doctor's Experience :</label>
+    					<div class="col-md-4 inputGroupContainer">
+   			 				<div class="input-group">
+        						<span class="input-group-addon"><i class="glyphicon glyphicon-text-background"></i></span>
+  								{{ doctor.experience }}
+    						</div>
+  						</div>
+					</div>
+		
+	
+					<!-- Text input-->
+			        <div class="form-group">
+  				   		<label class="col-md-4 control-label">Doctor's Position :</label>
+    					<div class="col-md-4 inputGroupContainer">
+   			 				<div class="input-group">
+        						<span class="input-group-addon"><i class="glyphicon glyphicon-text-background"></i></span>
+  								{{ doctor.position }}
+    						</div>
+  						</div>
+					</div>
+
+
+					<br><br>
+					<!-- Button -->
+					<div class="form-group">
+  						<label class="col-md-4 control-label"></label>
+  						<div class="col-md-4">
+							<button type="submit" class="btn btn-warning" >Load Into Department<span class="glyphicon glyphicon-send"></span></button>
+  						</div>
+					</div>
+
+					</fieldset>
+			    </form>
+			    </div>
+    			</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+			
+			<!--======================================================================================================================================================================-->
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src={% static "mani_tables/all_forms/js/jquery.js" %} ></script>
+    <script src={% static "mani_tables/all_forms/js/jquery.easing.min.js" %} ></script>
+	<script src={% static "mani_tables/all_forms/js/scrolling-nav.js" %} ></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src={% static "mani_tables/all_forms/js/bootstrap.min.js" %} ></script>
+	<script src={% static "mani_tables/all_forms/js/bootstrap.js" %} ></script>
+	
+
+    <!-- Menu Toggle Script -->
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
+
+</body>
+
+</html>

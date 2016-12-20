@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>SB Admin - Bootstrap Admin Template</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href={% static "mani_tables/tables/css/bootstrap.min.css" %}  rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href={% static "mani_tables/tables/css/sb-admin.css" %} rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href= {% static "mani_tables/tables/font-awesome/css/font-awesome.min.css" %} rel="stylesheet" type="text/css">
+	<style>
+		.group-para{
+			border: 1px solid black;
+    		outline-style: double;
+    		outline-color: red;
+		}
+		.container {
+			position : relative;
+		}
+		.container .container-background  {
+			position : absolute ;
+			top : 0 ;
+			right : 0;
+			bottom : 0;
+			left : 0 ;
+			background : url({% static "mani_tables/carousel-home/images/image2.jpg" %});  
+			opacity  : 0.3;
+		}
+		.container .content  {
+			position : relative ;
+			z-index : 1;
+		}
+	</style>
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/mani_tables/home">HOME</a>
+            </div>
+            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav">
+                    <li>
+                        <a href="index.html"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="charts.html"><i class="fa fa-fw fa-bar-chart-o"></i> Charts</a>
+                    </li>
+                    <li class="active">
+                        <a href="tables.html"><i class="fa fa-fw fa-table"></i> Tables</a>
+                    </li>
+                    <li>
+                        <a href="forms.html"><i class="fa fa-fw fa-edit"></i> Forms</a>
+                    </li>
+                    <li>
+                        <a href="bootstrap-elements.html"><i class="fa fa-fw fa-desktop"></i> Bootstrap Elements</a>
+                    </li>
+                    <li>
+                        <a href="bootstrap-grid.html"><i class="fa fa-fw fa-wrench"></i> Bootstrap Grid</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Dropdown <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="demo" class="collapse">
+                            <li>
+                                <a href="#">Dropown Item</a>
+                            </li>
+                            <li>
+                                <a href="#">Dropdown Item</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="blank-page.html"><i class="fa fa-fw fa-file"></i> Blank Page</a>
+                    </li>
+                    <li>
+                        <a href="index-rtl.html"><i class="fa fa-fw fa-dashboard"></i> RTL Dashboard</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </nav>
+		<div class="container" >
+			<div class="container-background"></div>
+			<div class="content">
+       	 		<div id="page-wapper">
+			
+           			 <div class="container-fluid pafe-header">
+
+                <!-- Page Heading -->
+                		<div class="row">
+                    		<div class="col-lg-12">
+                       		 	<h1 style="font-family : 'Lucida Console' , Monaco , monospace">
+                          			 <span style="text-transform : uppercase; "> {{ table }} </span>PROFILES :
+                        		</h1>
+                        		<ol class="breadcrumb">
+                           		 	<li>
+                               		 <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
+                            		</li>	
+                            		<li class="active">
+                                		<i class="fa fa-table"></i> tables
+                            		</li>
+									<li class="active"  style="text-transform:uppercase"  > 
+										<i class="fa fa-table"></i> {{ table }}
+									</li>
+                        			</ol>
+                    		</div>
+	                	</div>
+                <!-- /.row -->
+						<div class="col-lg-6">
+                	        <h2 style="text-transform:uppercase ; font-family:'Lucida Console' , Monaco , monospace">{{ table }} : </h2>
+                	        <div >
+                        	{% for row in tableinfo %} 
+                            	<p class="bg-danger group-para col-lg-6" style="text-transform:uppercase ; font-family:'Lucida Console' , Monaco , monospace;  font-size : 20px">  ID :		{{ row.0 }}</p> <p class="bg-danger group-para col-lg-6" style="text-transform:uppercase ; font-family:'Lucida Console' , Monaco , monospace ; font-size : 20px">  name : {{ row.1 }} </p>        	
+							{% endfor %}	
+                      
+							</div>
+                    	</div>
+               		</div>
+                
+            		</div>
+            <!-- /.container-fluid -->
+
+       			 </div>
+        <!-- /#page-wrapper -->
+				</div>
+			</div>
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src={% static "mani_tables/tables/js/jquery.js" %}></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src={% static "mani_tables/tables/js/bootstrap.min.js" %}></script>
+
+</body>
+
+</html>
