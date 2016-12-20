@@ -118,3 +118,7 @@ def give_profiles(request, tablename, ent_id):
 	c.execute("select * from %s where id = %s" % (tablename, ent_id))S
 	c = connection.cursor()
 	c.execute("update %s set paid = 'True'" % tablename)
+	
+def pay_entity(request, tablename):
+	c = connection.cursor()
+	c.execute("update %s set paid = 'True'" % tablename)
