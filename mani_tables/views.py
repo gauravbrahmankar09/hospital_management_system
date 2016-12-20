@@ -99,3 +99,22 @@ def insert_into_test (request) :
 	return render(request, 'mani_tables/test_entry_form.html', {'form': form})
 
 
+## AKASH'S ADDED FUNCTIONS
+def give_patient_profile(request, pat_id):
+	# search what all services have been availed by the patient, what is his total fee.			
+	patient_id = request.ID
+	c = connection.cursor()
+
+	patient = h.Patient()
+	patient.get_info(patient_ID)
+	patient.calculate_fee()
+
+## somehow display the information here.
+	# complete info in the patient object.
+	return render(request, 'mani_tables/patient_profiles.html', {'patient':patient}) # sending a patient object contaning full info of the patient
+
+def give_profiles(request, tablename, ent_id):
+	c = connection.cursor()
+	c.execute("select * from %s where id = %s" % (tablename, ent_id))S
+	c = connection.cursor()
+	c.execute("update %s set paid = 'True'" % tablename)
