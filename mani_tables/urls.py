@@ -5,6 +5,9 @@ import views
 urlpatterns = [
 	#home-carousel
 	url(r'^home$' , views.home , name = 'home'),
+	
+	#delete entry 
+	url( r'^delete/(?P<tablename>[a-z]+)/(?P<pk>[a-z 0-9]+)/$'  , views.delete_on_pk , name = 'delete' ),
 
 	#form-url
 	url(r'^renderforms$' , views.render_forms , name = 'render_forms'),

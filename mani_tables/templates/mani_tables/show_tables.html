@@ -100,13 +100,14 @@
                 <!-- /.row -->
 				<div class="col-lg-6">
                         <h2 style="text-transform:uppercase">{{ table }}</h2>
-                        <div class="table-responsive">
+                        
                             <table class="table table-bordered table-hover table-striped">
                                 <thead>
                                     <tr>
 										{% for colheaders in columns %}  
  	                                    	<th>{{ colheaders }} </th>
-    	                               	{% endfor %}					
+    	                               	{% endfor %}
+										<th>delete</th>					
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -114,12 +115,13 @@
                                     	<tr>
 											{% for rowele in row %} 
                                         		<td>{{ rowele }}</td>
-                                       		{% endfor %} 	
+                                       		{% endfor %}
+											<td><a href = "{% url 'delete' pk=row.0 tablename=table %}"> <span class="glyphicon-plus"></span></a></td> 	
                                     	</tr>
 									{% endfor %}	
                                 </tbody>
                             </table>
-                        </div>
+                        
                     </div>
                 </div>
                 

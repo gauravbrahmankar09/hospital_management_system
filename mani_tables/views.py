@@ -23,7 +23,12 @@ def profile_list (request , tablename) :
 	c.execute('select * from %s' %(tablename) )
 	[ rows , cols ]  = dictfetchall(c)
 	return render(request , template , {'table' : tablename , 'tableinfo' : rows} )
-	
+def delete_on_pk (request , tablename , pk) :
+	c = connection.cursor()
+	c.execute('select * from %s' %(tablename) )
+	[ rows , cols ]  = dictfetchall(c)
+	c.execute ("delete from %s" %(tablename) + " where %s" %(cols[0]) + " = %s" , [pk])
+	return HttpResponseRedirect("/mani_tables/show_" + tablename) 	
 #---------------------------empty-forms-----------------------------
 def render_forms (request) : 
 	patient = PatientForm ()
